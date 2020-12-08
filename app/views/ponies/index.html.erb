@@ -1,44 +1,27 @@
-<%- model_class = Pony -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <h2>(Ponies) Tasks</h2>
+    <hr>
+  </div>
 </div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:profession) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @ponies.each do |pony| %>
-      <tr>
-        <td><%= link_to pony.id, pony_path(pony) %></td>
-        <td><%= pony.name %></td>
-        <td><%= pony.profession %></td>
-        <td><%=l pony.created_at %></td>
-        <td>
-          <%= link_to t('.show', :default => t("helpers.links.show")),
-                      pony_path(pony), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_pony_path(pony), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      pony_path(pony),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', 
-                      :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      #this allows it to execute without reloading the page
-                      :remote => true,
-                      #I added delete_pony to the class to call in erb file
-                      :class => 'btn btn-xs btn-danger delete_pony' %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_pony_path,
-            :class => 'btn btn-primary' %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-2" id="pony-form" style="display:none;margin-bottom:40px;"></div>
+</div>
+
+<div class="row">
+  <div class="col-md-7 col-md-offset-1" id="ponies"><%= render @ponies %></div>
+</div>
+
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <hr>
+  </div>
+
+  <div class="col-md-10 col-md-offset-1">
+    <%= link_to new_pony_path, remote: true do %>
+      <button class="btn btn-default">New</button>
+    <% end %>
+    <br><br>
+  </div>
+</div>
