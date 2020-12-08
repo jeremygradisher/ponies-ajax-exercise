@@ -1,5 +1,6 @@
 class PoniesController < ApplicationController
   before_action :set_pony, only: [:show, :edit, :update, :destroy]
+  before_action :all_ponies, only: [:index, :create, :update, :destroy]
 
   # GET /ponies
   # GET /ponies.json
@@ -30,6 +31,7 @@ class PoniesController < ApplicationController
       if @pony.save
         format.html { redirect_to @pony, notice: 'Pony was successfully created.' }
         format.json { render :show, status: :created, location: @pony }
+        format.js   { render :layout => false }
       else
         format.html { render :new }
         format.json { render json: @pony.errors, status: :unprocessable_entity }
@@ -44,6 +46,7 @@ class PoniesController < ApplicationController
       if @pony.update(pony_params)
         format.html { redirect_to @pony, notice: 'Pony was successfully updated.' }
         format.json { render :show, status: :ok, location: @pony }
+        format.js   { render :layout => false }
       else
         format.html { render :edit }
         format.json { render json: @pony.errors, status: :unprocessable_entity }
@@ -67,6 +70,10 @@ class PoniesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_pony
       @pony = Pony.find(params[:id])
+    end
+    
+    def all_ponies
+      @ponies = Pony.all
     end
 
     # Only allow a list of trusted parameters through.

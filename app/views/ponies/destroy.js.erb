@@ -1,3 +1,1 @@
-$('.delete_pony').bind('ajax:success', function() {
-   $(this).closest('tr').fadeOut();
-});
+$('#ponies').html("<%= escape_javascript(render @ponies) %>");

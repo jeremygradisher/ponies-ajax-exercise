@@ -1,0 +1,17 @@
+<li class="list-group-item list-group-item-info">
+  <span class="name" style="margin-right:20px;margin-bottom:"><%= pony.name %></span>
+
+  <span class="profession" style="margin-right:20px;"><%= pony.profession %></span>
+
+  <span class="edit">
+    <%= link_to edit_pony_path(pony), remote: true do %>
+      <button class="btn btn-primary btn-xs">Edit</button>
+    <% end %>
+
+    
+    <%= link_to pony, remote: true, method: :delete,
+        data: { confirm: 'Are you sure?' } do %>
+      <button class="btn btn-danger btn-xs">Delete!</button>
+    <% end %>
+  </span>
+</li>
