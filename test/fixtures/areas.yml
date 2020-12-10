@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  suite_number: MyString
+  status: MyString
+  sq_ft: 1
+
+two:
+  suite_number: MyString
+  status: MyString
+  sq_ft: 1
