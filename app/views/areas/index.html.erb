@@ -1,3 +1,4 @@
+<!--collapse-->
 <p>
   <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
     Areas Collapse
@@ -8,8 +9,11 @@
 </p>
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
+<!--collapse-->
 
 
+
+        <!--table-->
         <%- model_class = Area -%>
         <div class="page-header">
           <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
@@ -17,12 +21,11 @@
         <table class="table table-striped" width="100%">
           <thead>
             <tr style="text-align:left;">
-              <th><%= model_class.human_attribute_name(:id) %></th>
-              <th><%= sort_link @ransack, :suite_number, "Suite #" %></th>
-              <th><%= sort_link @ransack, :status, "Status" %></th>
-              <th><%= sort_link @ransack, :sq_ft, "Sq Ft" %></th>
-              <th><%= model_class.human_attribute_name(:created_at) %></th>
-              <th><%=t '.actions', :default => t("helpers.actions") %></th>
+              <th><%= sort_link @ransack, :id, "ID:" %></th>
+              <th><%= sort_link @ransack, :suite_number, "Suite #:" %></th>
+              <th><%= sort_link @ransack, :status, "Status:" %></th>
+              <th><%= sort_link @ransack, :sq_ft, "Sq Ft:" %></th>
+              <th><%=t '.actions', :default => t("helpers.actions") %>:</th>
             </tr>
           </thead>
           <tbody>
@@ -32,7 +35,6 @@
                 <td><%= area.suite_number %></td>
                 <td><%= area.status %></td>
                 <td><%= area.sq_ft %></td>
-                <td><%=l area.created_at %></td>
                 <td>
                   <%= link_to t('.show', :default => t("helpers.links.show")),
                               area_path(area), :class => 'btn btn-default btn-xs' %>
@@ -48,15 +50,17 @@
             <% end %>
           </tbody>
         </table>
-        
+        <!--table-->
         <%= link_to t('.new', :default => t("helpers.links.new")),
                     new_area_path,
                     :class => 'btn btn-primary' %>
-
-
+        <!--table/link-->
+        
+        
+<!--collapse-->
   </div>
 </div>
-
+<!--collapse-->
 
 
 
