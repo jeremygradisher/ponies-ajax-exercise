@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :areas
   root 'ponies#index'
   
   resources :ponies
