@@ -38,6 +38,8 @@ gem 'twitter-bootstrap-rails'
 #for testing
 gem 'sql_queries_count'
 
+#for search
+gem 'ransack', '2.1.1'
 
 
 group :development, :test do

@@ -6,9 +6,9 @@
   <thead>
     <tr style="text-align:left;">
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:suite_number) %></th>
-      <th><%= model_class.human_attribute_name(:status) %></th>
-      <th><%= model_class.human_attribute_name(:sq_ft) %></th>
+      <th><%= sort_link @ransack, :suite_number, "Suite #" %></th>
+      <th><%= sort_link @ransack, :status, "Status" %></th>
+      <th><%= sort_link @ransack, :sq_ft, "Sq Ft" %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
